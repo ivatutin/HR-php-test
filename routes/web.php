@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('index');
+
+
+Route::any('wheather', 'WheatherController')->name('wheather');
+Route::get('order-list', 'OrderController@list')->name('order.list');
+Route::get('order-list/{id}', 'OrderController@edit')->name('order.edit');
+Route::post('order-list/{id}', 'OrderController@update')->name('order.update');
+Route::get('product-list', 'ProductController@list')->name('product.list');
+Route::post('product-list/{id}', 'ProductController@update')->name('product.update');
